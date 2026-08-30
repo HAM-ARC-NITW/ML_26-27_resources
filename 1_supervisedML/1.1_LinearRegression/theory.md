@@ -5,6 +5,8 @@
 *HAM ARC ML Sessions, 2026–27.*
 *Group: [Aadit](https://github.com/aadit-n), [Wahid](https://github.com/Abdul-Wahid2008), [Jibendra](https://github.com/Galaxyyus).*
 
+for some really nicey nicey handwritten notes, check [this](handwritten_theory.pdf) out. (credit to [Jibendra](https://github.com/Galaxyyus))
+
 ## 1. What is it?
 
 Linear regression is a supervised learning algorithm used for **regression** problems, meaning it predicts a continuous number rather than a category. Given an input $x$, we assume there is roughly a *straight-line relationship* between $x$ and the output $y$, and we try to find that line.
