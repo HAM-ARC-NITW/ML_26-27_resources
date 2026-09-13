@@ -3,7 +3,7 @@
 ---
 
 *HAM ARC ML Sessions, 2026–27.*
-*Group: [Pranav](https://github.com/falcon370), [Ashutosh].*
+*Group: [Pranav](https://github.com/falcon370), Ashutosh.*
 
 ## 1. What is it?
 
