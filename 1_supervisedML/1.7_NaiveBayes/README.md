@@ -3,7 +3,7 @@
 ---
 
 *HAM ARC ML Sessions, 2026–27.*
-*Group: [Aadit](https://github.com/aadit-n), [Wahid](https://github.com/Abdul-Wahid2008), [Jibendra](https://github.com/Galaxyyus).*
+*Group: [Pranav](https://github.com/falcon370), [Ashutosh].*
 
 ## 1. What is it?
 
@@ -146,127 +146,7 @@ For spam detection specifically, recall matters if you don't want spam slipping 
 * **Enough smoothing:** without Laplace smoothing, unseen feature/class combinations at prediction time can break the model outright (a zero probability multiplied through everything).
 * **Feature relevance:** irrelevant or purely noisy features contribute equally to the product as informative ones, since the model doesn't learn feature weights the way linear regression does.
 
-## 8. Code
-
-For the dataset, we generated a small synthetic set of spam and non-spam ("ham") text messages, built from a handful of templates with light word-level noise added for variety.
-
-We implemented it two ways to check that they agree:
-
-1. **Multinomial Naive Bayes written from scratch**, using word counts, log-probabilities, and Laplace smoothing directly.
-2. **scikit-learn's built-in `MultinomialNB`**, fed the same bag-of-words features from `CountVectorizer`.
-
-### Output
-
-```text
-From scratch: acc=1.000 precision=1.000 recall=1.000 f1=1.000
-Sklearn     : acc=1.000 precision=1.000 recall=1.000 f1=1.000
-
-'free cash prize click now' -> from scratch: spam, sklearn: spam
-'lets meet for the project review' -> from scratch: ham, sklearn: ham
-```
-
-Both implementations agree perfectly on the held-out test messages and on two brand-new example messages, which is a good sanity check that the from-scratch log-probability calculation matches sklearn's internals. (The dataset here is small and templated, so a perfect score is expected — the point is the two implementations matching, not that Naive Bayes is unbeatable on real-world spam.)
-
-### Gaussian Naive Bayes, from scratch — Iris dataset
-
-To check the Gaussian variant too, we implemented it from scratch on the classic Iris dataset (150 flowers, 4 measurements each, 3 species), using the mean/variance-per-class approach from Section 4:
-
-```python
-import numpy as np
-from sklearn.datasets import load_iris
-
-iris = load_iris()
-X, y = iris.data, iris.target
-
-np.random.seed(0)
-indices = np.random.permutation(len(X))
-split = int(0.8 * len(X))
-train_idx, test_idx = indices[:split], indices[split:]
-X_train, X_test = X[train_idx], X[test_idx]
-y_train, y_test = y[train_idx], y[test_idx]
-
-class_stats = {}
-for cls in np.unique(y_train):
-    cls_data = X_train[y_train == cls]
-    class_stats[cls] = {
-        "mean": np.mean(cls_data, axis=0),
-        "var": np.var(cls_data, axis=0),
-    }
-
-def gaussian(x, mean, var):
-    return (1 / np.sqrt(2 * np.pi * var)) * np.exp(-((x - mean) ** 2) / (2 * var))
-
-def predict(sample):
-    posteriors = {}
-    for cls, stats in class_stats.items():
-        likelihoods = gaussian(sample, stats["mean"], stats["var"])
-        posteriors[cls] = np.prod(likelihoods)  # naive independence assumption
-    return max(posteriors, key=posteriors.get)
-
-predictions = [predict(x) for x in X_test]
-accuracy = np.mean(np.array(predictions) == y_test)
-```
-
-**Output:**
-
-```text
-Number of test samples: 30
-Accuracy: 0.9333
-
-First 3 test predictions:
-Actual: setosa    | Predicted: setosa
-Actual: virginica | Predicted: virginica
-Actual: setosa    | Predicted: setosa
-```
-
-### Gaussian Naive Bayes with sklearn — Breast Cancer dataset
-
-We then compared against scikit-learn's built-in `GaussianNB`, this time on the (harder, higher-dimensional) Breast Cancer Wisconsin dataset — 30 features per sample, classifying tumours as malignant or benign:
-
-```python
-from sklearn.datasets import load_breast_cancer
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import accuracy_score, classification_report
-
-data = load_breast_cancer()
-x, y = data.data, data.target
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
-
-model = GaussianNB()
-model.fit(x_train, y_train)
-y_pred = model.predict(x_test)
-
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print(classification_report(y_test, y_pred))
-```
-
-**Output:**
-
-```text
-Accuracy: 0.9737
-
-              precision    recall  f1-score   support
-
-   malignant       1.00      0.93      0.96        43
-      benign       0.96      1.00      0.98        71
-
-    accuracy                           0.97       114
-   macro avg       0.98      0.97      0.97       114
-weighted avg       0.97      0.97      0.97       114
-```
-
-Even with the strong (and technically false) independence assumption across 30 correlated features, Gaussian NB still gets a respectable accuracy here — a good illustration of why the "naive" assumption tends to work better in practice than the theory alone would suggest.
-
-### Visualising the decision regions
-
-Restricting to just two features (petal length and petal width) lets us actually plot what Gaussian NB's decision boundary looks like on the Iris dataset:
-
-![Gaussian Naive Bayes decision regions on Iris petal length/width](images/gnb_decision_regions.png)
-
-Because each class's features are modelled as independent Gaussians, the boundaries between regions come out as smooth curves rather than the straight lines you'd get from a linear model, but they're still fairly simple — Gaussian NB doesn't capture complex, twisting boundaries the way a tree-based method might.
-
-## 9. Summary
+## 8. Summary
 
 | **concept**         | **stuff to remember**                                                                                     |
 | --------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -278,7 +158,7 @@ Because each class's features are modelled as independent Gaussians, the boundar
 | **Evaluation**       | Accuracy, precision, recall, F1 — precision/recall trade-off matters most for imbalanced classes           |
 | **Key assumption**   | Features are conditionally independent given the class (rarely true, often still works)                    |
 
-## 10. Resources we used
+## 9. Resources we used
 
 * [StatQuest - Naive Bayes, Clearly Explained](https://www.youtube.com/watch?v=O2L2Uv9pdDA) — the best starting point for the core idea and a worked-through example by hand.
 * [StatQuest - Naive Bayes: Multinomial Naive Bayes](https://www.youtube.com/watch?v=temrxxaQjJk) — focuses specifically on the multinomial variant used in text classification.
