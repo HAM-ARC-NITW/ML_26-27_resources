@@ -3,7 +3,7 @@
 ---
 
 *HAM ARC ML Sessions, 2026–27.*
-*Group: [Aadit](https://github.com/aadit-n), [Wahid](https://github.com/Abdul-Wahid2008), [Jibendra](https://github.com/Galaxyyus).*
+*Group: [Nived](https://github.com/nived-m1), [Satya Ganesh](https://github.com/Sg3107)*
 
 ## 1. What is it?
 
@@ -140,83 +140,7 @@ Random Forest is much more forgiving than linear regression, since it doesn't as
 * **Can still overfit:** with very deep trees and too few samples per leaf, individual trees can memorise noise, even though averaging many of them helps a lot.
 * **Less interpretable than a single tree:** you gain accuracy but lose the easy "just follow the tree" explainability of a lone decision tree.
 
-## 7. Code
-
-For the dataset, we used a small weather dataset — daily temperature readings including the previous two days' highs, a historical average for the day, and the true observed high we're trying to predict, `temps.csv`.
-
-We used scikit-learn's `RandomForestRegressor` directly, since (unlike the from-scratch gradient descent code in the linear regression notes) reimplementing bootstrap sampling, per-split feature subsampling, and tree-building from scratch isn't very illuminating — the interesting part is in the algorithm's logic above, not the boilerplate.
-
-```python
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-
-# 1. Load dataset
-df = pd.read_csv("temps.csv")
-df = pd.get_dummies(df, columns=["week"])
-
-# 2. Separate features and target
-X = df.drop(columns=["actual", "friend"])
-y = df["actual"]
-
-# 3. Train-test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.20, random_state=42
-)
-
-# 4. Create Random Forest Regressor
-model = RandomForestRegressor(
-    n_estimators=200,
-    random_state=42,
-    max_features="sqrt"
-)
-
-# 5. Train
-model.fit(X_train, y_train)
-
-# 6. Predict
-y_pred = model.predict(X_test)
-
-# 7. Evaluate
-mae = mean_absolute_error(y_test, y_pred)
-mse = mean_squared_error(y_test, y_pred)
-rmse = mse ** 0.5
-r2 = r2_score(y_test, y_pred)
-
-print("MAE :", mae)
-print("MSE :", mse)
-print("RMSE:", rmse)
-print("R2  :", r2)
-
-importance = pd.DataFrame({
-    "Feature": X.columns,
-    "Importance": model.feature_importances_
-})
-importance = importance.sort_values(by="Importance", ascending=False)
-print(importance)
-```
-
-### Output
-
-```text
-MAE : 3.5317
-MSE : 18.7111
-RMSE: 4.3256
-R2  : 0.8972
-
- Feature   Importance
- average     0.3245
- temp_2      0.2543
- temp_1      0.2480
- month       0.1275
- day         0.0234
- week_Fri    0.0039
-```
-
-The historical `average` for the day and the previous two days' temperatures (`temp_2`, `temp_1`) dominate the feature importances — which lines up with intuition, since recent and seasonal temperature is naturally the strongest predictor of tomorrow's high.
-
-## 8. Summary
+## 7. Summary
 
 | **concept**          | **stuff to remember**                                                                              |
 | ---------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -228,7 +152,7 @@ The historical `average` for the day and the previous two days' temperatures (`t
 | **Evaluation**        | MAE / MSE / RMSE / $R^2$ (regression), accuracy / precision / recall (classification)                 |
 | **Bonus**             | Feature importances, showing which inputs the forest relies on most                                    |
 
-## 9. Resources we used
+## 8. Resources we used
 
 * [StatQuest - Random Forests Part 1: Building, Using and Evaluating](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ) — covers bagging, OOB samples, and evaluation in one go.
 * [StatQuest - Random Forests Part 2: Missing Data and Clustering](https://www.youtube.com/watch?v=sQ870aTKqiM) — a good follow-up on missing data handling and proximity matrices.
