@@ -3,7 +3,7 @@
 ---
 
 *HAM ARC ML Sessions, 2026–27.*
-*Group: [Ayaan]([https://github.com/Ayaan-Surkhi]), [Subham](https://github.com/SubhamJM)*
+*Group: [Ayaan](https://github.com/Ayaan-Surkhi), [Subham](https://github.com/SubhamJM)*
 
 ## 1. What is it?
 
@@ -142,7 +142,7 @@ Gradient boosting is much less strict about its assumptions than linear regressi
 | **Evaluation**      | MSE or RMSE for error size, $R^2$ for variance explained (regression); accuracy/log loss/AUC (classification) |
 | **Key risk**        | Overfitting if too many trees, too high a learning rate, or too-deep trees are used                        |
 
-## 10. Resources we used
+## 10. Resources
 
 * [StatQuest - Gradient Boost, Part 1: Regression Main Ideas](https://www.youtube.com/watch?v=3CC4N4z3GJc) — the clearest intro to the residual-fitting idea.
 * [StatQuest - Gradient Boost, Part 2: Regression Details](https://www.youtube.com/watch?v=2xudPOBz-vs) — walks through the math step by step.
