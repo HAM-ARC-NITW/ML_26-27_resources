@@ -20,9 +20,6 @@ Problem Statement
       ▼
 5. Evaluation & error analysis
       │
-      ▼
-6. Communicate & deploy
-      │
       └──► iterate back to any earlier stage
 ```
 
