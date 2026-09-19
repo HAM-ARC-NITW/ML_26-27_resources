@@ -4,7 +4,7 @@
 
 <details>
   <summary>0. Complete Workflow</summary>
-  * [Procedure](./0_complete_workflow/)
+  <a href="./0_complete_workflow/">Procedure</a>
 </details>
 
 <details>
