@@ -4,7 +4,9 @@
 
 <details>
   <summary>0. Complete Workflow</summary>
-  * <a href="./0_complete_workflow/">Procedure</a>
+  <ul>
+    <li><a href="./0_complete_workflow/">Procedure</a></li>
+  </ul>
 </details>
 
 <details>
