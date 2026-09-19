@@ -3,6 +3,11 @@
 ### Timeline:
 
 <details>
+  <summary>0. Complete Workflow</summary>
+  * [Procedure](./0_complete_workflow/)
+</details>
+
+<details>
   <summary>1. Supervised ML algorithms (26-08-2026)</summary>
 
   * [Linear Regression](./1_supervisedML/1.1_LinearRegression/)
