@@ -4,7 +4,7 @@
 
 <details>
   <summary>0. Complete Workflow</summary>
-  * [Procedure](./0_complete_workflow/README.md/)
+  * [Procedure](./0_complete_workflow/)
 </details>
 
 <details>
