@@ -1,4 +1,7 @@
 # ML_26-27_resources
+---
+
+Guide on submitting a PR: [click here](./contribution.md)
 
 ### Timeline:
 
@@ -19,4 +22,16 @@
   * [Gradient boosting methods](./1_supervisedML/1.5_GradientBoosting/)
   * [Support Vector Machines](./1_supervisedML/1.6_SVM/)
   * [Naive Bayes Classification](./1_supervisedML/1.7_NaiveBayes/)
+</details>
+
+<details>
+  <summary>2. Unsupervised ML algorithms (19-09-2026)</summary>
+
+  * [Principal Component Analysis](./2_unsupervisedML/2.1_PCA/)
+  * [k-means clustering](./2_unsupervisedML/2.2_k-Means/)
+  * [t-distributed Stochastic Neighbor Embedding](./2_unsupervisedML/2.3_t-SNE/)
+  * [Hierarchical Clustering](./2_unsupervisedML/2.4_HierarchicalClustering/)
+  * [Agglomerative Clustering](./2_unsupervisedML/2.5_AgglomerativeClustering/)
+  * [Independent Component Analysis](./2_unsupervisedML/2.6_ICA/)
+  * [DBSCAN](./2_unsupervisedML/2.7_DBSCAN/)
 </details>
