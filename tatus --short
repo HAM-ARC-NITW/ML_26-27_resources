@@ -1,0 +1,22 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 0dfe75f..c4d68a1 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -35,3 +35,17 @@[m [mGuide on submitting a PR: [click here](./contribution.md)[m
+   * [Independent Component Analysis](./2_unsupervisedML/2.6_ICA/)[m
+   * [DBSCAN](./2_unsupervisedML/2.7_DBSCAN/)[m
+ </details>[m
+[32m+[m
+[32m+[m[32m<details>[m
+[32m+[m[32m  <summary>4. Sequence Models and Attention</summary>[m
+[32m+[m
+[32m+[m[32m  * [Introduction](./4_seqmodels_attention/00_start_here.md /)[m
+[32m+[m[32m  * [RNNS](./4_seqmodels_attention/01_rnn.md/)[m
+[32m+[m[32m  * [LSTMs](./4_seqmodels_attention/02_lstm.md /)[m
+[32m+[m[32m  * [GRU](./4_seqmodels_attention/03_gru.md/)[m
+[32m+[m[32m  * [seq2seq](./4_seqmodels_attention/04_seq2seq.md/)[m
+[32m+[m[32m  * [Attention](./4_seqmodels_attention/205_attention.md/)[m
+[32m+[m[32m  * [Self Attention and Multihead](./4_seqmodels_attention/06_self_attention_and_multihead.md/)[m
+[32m+[m[32m  * [Positional Encoding](./4_seqmodels_attention/07_positional_encoding.md/)[m
+[32m+[m[32m  * [Resources](./4_seqmodels_attention/08_papers_and_resources.md/)[m
+[32m+[m[32m</details>[m
