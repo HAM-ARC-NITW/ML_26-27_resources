@@ -35,3 +35,17 @@ Guide on submitting a PR: [click here](./contribution.md)
   * [Independent Component Analysis](./2_unsupervisedML/2.6_ICA/)
   * [DBSCAN](./2_unsupervisedML/2.7_DBSCAN/)
 </details>
+
+<details>
+  <summary>4. Sequence Models and Attention</summary>
+
+  * [Introduction](./4_seqmodels_attention/00_start_here.md /)
+  * [RNNS](./4_seqmodels_attention/01_rnn.md/)
+  * [LSTMs](./4_seqmodels_attention/02_lstm.md /)
+  * [GRU](./4_seqmodels_attention/03_gru.md/)
+  * [seq2seq](./4_seqmodels_attention/04_seq2seq.md/)
+  * [Attention](./4_seqmodels_attention/205_attention.md/)
+  * [Self Attention and Multihead](./4_seqmodels_attention/06_self_attention_and_multihead.md/)
+  * [Positional Encoding](./4_seqmodels_attention/07_positional_encoding.md/)
+  * [Resources](./4_seqmodels_attention/08_papers_and_resources.md/)
+</details>
