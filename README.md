@@ -39,9 +39,9 @@ Guide on submitting a PR: [click here](./contribution.md)
 <details>
   <summary>4. Sequence Models and Attention</summary>
 
-  * [Introduction](./4_seqmodels_attention/00_start_here.md /)
+  * [Introduction](./4_seqmodels_attention/00_start_here.md/)
   * [RNNS](./4_seqmodels_attention/01_rnn.md/)
-  * [LSTMs](./4_seqmodels_attention/02_lstm.md /)
+  * [LSTMs](./4_seqmodels_attention/02_lstm.md/)
   * [GRU](./4_seqmodels_attention/03_gru.md/)
   * [seq2seq](./4_seqmodels_attention/04_seq2seq.md/)
   * [Attention](./4_seqmodels_attention/205_attention.md/)
